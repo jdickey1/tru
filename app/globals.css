@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+:root {
+  /* Texas Heritage Bold Color Palette */
+  --navy-deep: #1a2744;
+  --navy-light: #2a3a5c;
+  --texas-red: #bf0a30;
+  --texas-red-dark: #9a0827;
+  --cream: #f5f1e8;
+  --cream-dark: #e8e2d5;
+  --gold: #c9a227;
+  --gold-light: #d4b43d;
+  --white: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-muted: #5a5a5a;
+  
+  /* Font families */
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-source-sans), system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-light: var(--navy-light);
+  --color-texas-red: var(--texas-red);
+  --color-texas-red-dark: var(--texas-red-dark);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--navy-deep);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--navy-light);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes starPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-star-pulse {
+  animation: starPulse 3s ease-in-out infinite;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Hero gradient overlay */
+.hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 39, 68, 0.92) 0%,
+    rgba(26, 39, 68, 0.85) 50%,
+    rgba(42, 58, 92, 0.8) 100%
+  );
+}
+
+/* Gold accent line */
+.gold-accent {
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  height: 2px;
+}
+
+/* Button styles */
+.btn-primary {
+  background: var(--texas-red);
+  color: var(--white);
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+  background: var(--texas-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(191, 10, 48, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+.btn-secondary:hover {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+
+/* Section styling */
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Issue card styling */
+.issue-card {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(26, 39, 68, 0.08);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--gold);
+}
+
+.issue-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(26, 39, 68, 0.12);
+}
+
+/* Form input styling */
+.form-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--cream-dark);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background: var(--white);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--navy-deep);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Lone Star SVG styling */
+.lone-star {
+  fill: var(--gold);
+  filter: drop-shadow(0 2px 4px rgba(201, 162, 39, 0.3));
+}

@@ -1,0 +1,10 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with navy-deep color -->
+  <circle cx="32" cy="32" r="32" fill="#1a2744"/>
+
+  <!-- Texas Lone Star in gold -->
+  <polygon
+    points="32,12 37,26 53,26 40,36 45,50 32,40 19,50 24,36 11,26 27,26"
+    fill="#c9a227"
+  />
+</svg>
