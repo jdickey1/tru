@@ -50,7 +50,7 @@ const Navigation = () => {
             <a href="#join" className="text-white/80 hover:text-white transition-colors font-medium">
               Get Involved
             </a>
-            <a href="#donate" className="btn-primary">
+            <a href="https://secure.anedot.com/texas-republicans-united-pac/donation" target="_blank" rel="noopener noreferrer" className="btn-primary">
               Donate
             </a>
           </div>
@@ -84,7 +84,7 @@ const Navigation = () => {
               <a href="#join" className="text-white/80 hover:text-white transition-colors font-medium py-2">
                 Get Involved
               </a>
-              <a href="#donate" className="btn-primary text-center">
+              <a href="https://secure.anedot.com/texas-republicans-united-pac/donation" target="_blank" rel="noopener noreferrer" className="btn-primary text-center">
                 Donate
               </a>
             </div>
@@ -241,7 +241,7 @@ const Issues = () => (
         <h2 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold text-white mb-4">
           Where We Stand
         </h2>
-        <p className="text-lg text-white/70 max-w-2xl mx-auto">
+        <p className="text-lg text-white/90 max-w-2xl mx-auto">
           Texas Republicans United fights for the conservative principles that keep Texas strong, free, and prosperous.
         </p>
         <div className="gold-accent w-24 mx-auto mt-6" />
@@ -428,15 +428,15 @@ const Donate = () => (
         register voters, and keep Texas the beacon of freedom in America.
       </p>
       <a
-        href="https://secure.anedot.com/texas-republicans-united/donate"
+        href="https://secure.anedot.com/texas-republicans-united-pac/donation"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block bg-white text-[var(--texas-red)] px-10 py-4 rounded font-bold text-lg uppercase tracking-wide hover:bg-[var(--cream)] transition-colors shadow-lg"
       >
         Contribute Today
       </a>
-      <p className="text-white/70 text-sm mt-6">
-        Paid for by Texas Republicans United PAC. Not authorized by any candidate or candidate's committee.
+      <p className="text-white/90 text-sm mt-6">
+        Political Advertisement Paid for by Texas Republicans United PAC
       </p>
     </div>
   </section>
@@ -457,7 +457,7 @@ const Footer = () => (
               </span>
             </div>
           </div>
-          <p className="text-white/70 text-sm leading-relaxed">
+          <p className="text-white/90 text-sm leading-relaxed">
             A Political Action Committee dedicated to electing Republican candidates 
             and growing the Republican Party across the great state of Texas.
           </p>
@@ -469,10 +469,10 @@ const Footer = () => (
             Quick Links
           </h3>
           <ul className="space-y-2">
-            <li><a href="#mission" className="text-white/70 hover:text-white transition-colors">Our Mission</a></li>
-            <li><a href="#issues" className="text-white/70 hover:text-white transition-colors">The Issues</a></li>
-            <li><a href="#join" className="text-white/70 hover:text-white transition-colors">Get Involved</a></li>
-            <li><a href="#donate" className="text-white/70 hover:text-white transition-colors">Donate</a></li>
+            <li><a href="#mission" className="text-white/90 hover:text-white transition-colors">Our Mission</a></li>
+            <li><a href="#issues" className="text-white/90 hover:text-white transition-colors">The Issues</a></li>
+            <li><a href="#join" className="text-white/90 hover:text-white transition-colors">Get Involved</a></li>
+            <li><a href="#donate" className="text-white/90 hover:text-white transition-colors">Donate</a></li>
           </ul>
         </div>
 
@@ -481,8 +481,8 @@ const Footer = () => (
           <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold mb-4 text-[var(--gold)]">
             Contact Us
           </h3>
-          <ul className="space-y-2 text-white/70 text-sm">
-            <li>Austin, Texas</li>
+          <ul className="space-y-2 text-white/90 text-sm">
+            <li>959 W. Glade Rd., Hurst, TX 76054</li>
             <li>
               <a href="mailto:info@texasrepublicansunited.com" className="hover:text-white transition-colors">
                 info@texasrepublicansunited.com
@@ -519,7 +519,7 @@ const Footer = () => (
 
       <div className="border-t border-white/10 mt-12 pt-8 text-center text-white/50 text-sm">
         <p className="mb-2">
-          Paid for by Texas Republicans United PAC. Not authorized by any candidate or candidate's committee.
+          Political Advertisement Paid for by Texas Republicans United PAC
         </p>
         <p>
           © {new Date().getFullYear()} Texas Republicans United. All rights reserved.
