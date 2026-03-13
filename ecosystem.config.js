@@ -3,7 +3,7 @@ module.exports = {
     name: 'tru-prod',
     script: 'node',
     args: '.next/standalone/server.js',
-    cwd: '/home/tru/apps/web',
+    cwd: '/home/tru/app',
     env: {
       NODE_ENV: 'production',
       PORT: 3032

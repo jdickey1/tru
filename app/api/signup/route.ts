@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Pool } from "pg";
 
+import { rateLimitByIP } from "@/lib/rate-limit";
+import { validateOrigin } from "@/lib/csrf";
+
+const ALLOWED_ORIGINS = ["https://texasrepublicansunited.com", "https://www.texasrepublicansunited.com"];
+
 // Database connection
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -8,6 +13,16 @@ const pool = new Pool({
 
 export async function POST(request: NextRequest) {
   try {
+  if (!validateOrigin(request, ALLOWED_ORIGINS)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+
+  const { success: rlOk } = rateLimitByIP(request, "signup", 5, 60000);
+  if (!rlOk) {
+    return NextResponse.json({ error: "Too many attempts. Try again later." }, { status: 429 });
+  }
+
+
     const body = await request.json();
     const { firstName, lastName, email, phone, county } = body;
 
