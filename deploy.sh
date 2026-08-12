@@ -152,6 +152,29 @@ start_and_verify() {
 # Function to do the build (standalone mode)
 do_build() {
     clear_stale_locks
+
+    # ---- Install dependencies from committed lockfile (U9 fleet standard) ----
+    # Never build against ambient node_modules — package/lock bumps must ship.
+    # Order: after SA-19 ref-pin (when present), before audit gate and build.
+    # Gotcha: first deploy after editing deploy.sh may still run the old buffered
+    # script; confirm "Installing dependencies" logs on the next deploy.
+    if [ -f package-lock.json ]; then
+        echo "Installing dependencies (npm ci)..."
+        npm ci --include=dev --no-audit --no-fund || {
+            echo "DEPLOY BLOCKED: npm ci failed (package.json / package-lock.json out of sync?)"
+            exit 1
+        }
+    elif [ -f bun.lock ] || [ -f bun.lockb ]; then
+        echo "Installing dependencies (bun install --frozen-lockfile)..."
+        bun install --frozen-lockfile || {
+            echo "DEPLOY BLOCKED: bun install --frozen-lockfile failed (lockfile out of sync?)"
+            exit 1
+        }
+    else
+        echo "DEPLOY BLOCKED: no package-lock.json or bun.lock — commit a lockfile before deploy"
+        exit 1
+    fi
+
     echo "🏗️  Building Next.js (standalone mode)..."
 
     # Build with environment variables
